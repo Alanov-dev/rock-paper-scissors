@@ -11,19 +11,35 @@ function computerPlay() {
         return "SCISSORS";
     }
 }
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection, playerPoints, computerPoints) {
+    //let playerPoints;
+    //let computerPoints;
     if(playerSelection === computerSelection) {
-        return "Draw! " + playerSelection + " and " + computerSelection + " is draw.";
+        console.log("Draw! " + playerSelection + " and " + computerSelection + " is draw.");
+        return 0;
     } else if(playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-        return "You win! " + playerSelection + " beats " + computerSelection;
+        console.log("You win! " + playerSelection + " beats " + computerSelection);
+        playerPoints++;
+        return playerPoints;
     } else if(playerSelection === "PAPER" && computerSelection === "ROCK") {
-        return "You win! " + playerSelection + " beats " + computerSelection;
+        console.log("You win! " + playerSelection + " beats " + computerSelection);
+        playerPoints++;
+        return playerPoints;
     } else if(playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-        return "You win! " + playerSelection + " beats " + computerSelection;
+        console.log("You win! " + playerSelection + " beats " + computerSelection);
+        playerPoints++;
+        return playerPoints;
     } else {
-        return "You lose! " + computerSelection + " beats " + playerSelection;
+        console.log("You lose! " + computerSelection + " beats " + playerSelection);
+        computerPoints++;
+        return computerPoints;
     }
 }
 const playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
 const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+//console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+    console.log(playRound(playerSelection, computerSelection));
+}
+game();
