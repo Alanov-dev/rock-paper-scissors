@@ -37,11 +37,11 @@ function game() {
     let computerTotal = 0;
     for(i = 0; i < 5; i++) {
         points = playRound();
-        if(points === "player"){
+        if(points === "player") {
             playerTotal++;
             console.log("Player points: " + playerTotal);
         }
-        else if(points === "computer"){
+        else if(points === "computer") {
             computerTotal++;
             console.log("Computer points: " + computerTotal);
         }        
