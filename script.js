@@ -11,9 +11,6 @@ function computerPlay() {
         return "SCISSORS";
     }
 }
-//let playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
-//let computerSelection = computerPlay();
-//console.log(playRound(playerSelection, computerSelection));
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
