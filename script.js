@@ -14,35 +14,47 @@ function computerPlay() {
 //let playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
 //let computerSelection = computerPlay();
 //console.log(playRound(playerSelection, computerSelection));
-function playRound(playerSelection, computerSelection, playerPoints, computerPoints) {
-    //let playerPoints;
-    //let computerPoints;
+function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
     if(playerSelection === computerSelection) {
         console.log("Draw! " + playerSelection + " and " + computerSelection + " is draw.");
-        return 0;
+        return "draw";
     } else if(playerSelection === "ROCK" && computerSelection === "SCISSORS") {
         console.log("You win! " + playerSelection + " beats " + computerSelection);
-        playerPoints++;
-        return playerPoints;
+        return "player";
     } else if(playerSelection === "PAPER" && computerSelection === "ROCK") {
         console.log("You win! " + playerSelection + " beats " + computerSelection);
-        playerPoints++;
-        return playerPoints;
+        return "player";
     } else if(playerSelection === "SCISSORS" && computerSelection === "PAPER") {
         console.log("You win! " + playerSelection + " beats " + computerSelection);
-        playerPoints++;
-        return playerPoints;
+        return "player";
     } else {
         console.log("You lose! " + computerSelection + " beats " + playerSelection);
-        computerPoints++;
-        return computerPoints;
+        return "computer";
     }
 }
 function game() {    
+    let points = "";
+    let playerTotal = 0;
+    let computerTotal = 0;
     for(i = 0; i < 5; i++) {
-        playRound();
+        points = playRound();
+        if(points === "player"){
+            playerTotal++;
+            console.log("Player points: " + playerTotal);
+        }
+        else if(points === "computer"){
+            computerTotal++;
+            console.log("Computer points: " + computerTotal);
+        }        
+    }
+    if(playerTotal > computerTotal) {
+        console.log("Player has " + playerTotal + " points, Player won!");
+    } else if(computerTotal > playerTotal) {
+        console.log("Computer has " + computerTotal + " points, Computer won!");
+    } else {
+        console.log("Player has " + playerTotal + " points and Computer has " + computerTotal + " points, it's a draw!");
     }
 }
 game();
