@@ -51,7 +51,8 @@ function game() {
     } else if(computerTotal > playerTotal) {
         console.log("Computer has " + computerTotal + " points, Computer won!");
     } else {
-        console.log("Player has " + playerTotal + " points and Computer has " + computerTotal + " points, it's a draw!");
+        console.log("Player has " + playerTotal + " points and Computer has " + computerTotal +
+            " points, it's a draw!");
     }
 }
 game();
