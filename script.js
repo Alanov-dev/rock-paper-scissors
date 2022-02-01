@@ -11,9 +11,14 @@ function computerPlay() {
         return "SCISSORS";
     }
 }
+//let playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
+//let computerSelection = computerPlay();
+//console.log(playRound(playerSelection, computerSelection));
 function playRound(playerSelection, computerSelection, playerPoints, computerPoints) {
     //let playerPoints;
     //let computerPoints;
+    computerSelection = computerPlay();
+    playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
     if(playerSelection === computerSelection) {
         console.log("Draw! " + playerSelection + " and " + computerSelection + " is draw.");
         return 0;
@@ -35,11 +40,9 @@ function playRound(playerSelection, computerSelection, playerPoints, computerPoi
         return computerPoints;
     }
 }
-const playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
-const computerSelection = computerPlay();
-//console.log(playRound(playerSelection, computerSelection));
-
-function game() {
-    console.log(playRound(playerSelection, computerSelection));
+function game() {    
+    for(i = 0; i < 5; i++) {
+        playRound();
+    }
 }
 game();
