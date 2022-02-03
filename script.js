@@ -13,7 +13,7 @@ function computerPlay() {
 }
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
-    playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
+    //playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
     if(playerSelection === computerSelection) {
         console.log("Draw! " + playerSelection + " and " + computerSelection + " is draw.");
         return "draw";
@@ -31,11 +31,41 @@ function playRound(playerSelection, computerSelection) {
         return "computer";
     }
 }
+const container = document.querySelector("#container");
+
+const rockButton = document.createElement("button");
+rockButton.classList.add('selectionButton');
+rockButton.textContent = "ROCK";
+
+const paperButton = document.createElement("button");
+paperButton.classList.add("selectionButton")
+paperButton.textContent = "PAPER";
+
+const scissorsButton = document.createElement("button");
+scissorsButton.classList.add("selectionButton");
+scissorsButton.textContent = "SCISSORS";
+
+container.appendChild(rockButton);
+container.appendChild(paperButton);
+container.appendChild(scissorsButton);
+
+rockButton.addEventListener("click", () => {
+    playRound(playerSelection = "ROCK");
+});
+
+paperButton.addEventListener("click", () => {
+    playRound(playerSelection = "PAPER");
+});
+
+scissorsButton.addEventListener("click", () => {
+    playRound(playerSelection = "SCISSORS");
+});
+
 function game() {    
     let points = "";
     let playerTotal = 0;
     let computerTotal = 0;
-    for(i = 0; i < 5; i++) {
+    /*for(i = 0; i < 5; i++) {
         points = playRound();
         if(points === "player") {
             playerTotal++;
@@ -45,7 +75,7 @@ function game() {
             computerTotal++;
             console.log("Computer points: " + computerTotal);
         }        
-    }
+    }*/
     if(playerTotal > computerTotal) {
         console.log("Player has " + playerTotal + " points, Player won!");
     } else if(computerTotal > playerTotal) {
