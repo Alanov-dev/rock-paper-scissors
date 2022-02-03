@@ -14,20 +14,33 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
     //playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
+    const drawP = document.createElement("p");
+    const winP = document.createElement("p");
+    const loseP = document.createElement("p");
     if(playerSelection === computerSelection) {
-        console.log("Draw! " + playerSelection + " and " + computerSelection + " is draw.");
+        //console.log("Draw! " + playerSelection + " and " + computerSelection + " is draw.");
+        drawP.textContent = "Draw! " + playerSelection + " and " + computerSelection + " is draw.";
+        container.appendChild(drawP);
         return "draw";
     } else if(playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-        console.log("You win! " + playerSelection + " beats " + computerSelection);
+        //console.log("You win! " + playerSelection + " beats " + computerSelection);
+        winP.textContent = "You win! " + playerSelection + " beats " + computerSelection;
+        container.appendChild(winP);
         return "player";
     } else if(playerSelection === "PAPER" && computerSelection === "ROCK") {
-        console.log("You win! " + playerSelection + " beats " + computerSelection);
+        //console.log("You win! " + playerSelection + " beats " + computerSelection);
+        winP.textContent = "You win! " + playerSelection + " beats " + computerSelection;
+        container.appendChild(winP);
         return "player";
     } else if(playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-        console.log("You win! " + playerSelection + " beats " + computerSelection);
+        //console.log("You win! " + playerSelection + " beats " + computerSelection);
+        winP.textContent = "You win! " + playerSelection + " beats " + computerSelection;
+        container.appendChild(winP);
         return "player";
     } else {
-        console.log("You lose! " + computerSelection + " beats " + playerSelection);
+        //console.log("You lose! " + computerSelection + " beats " + playerSelection);
+        loseP.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
+        container.appendChild(loseP);
         return "computer";
     }
 }
@@ -60,6 +73,10 @@ paperButton.addEventListener("click", () => {
 scissorsButton.addEventListener("click", () => {
     playRound(playerSelection = "SCISSORS");
 });
+
+const resultDivs = document.createElement("div");
+
+container.appendChild(resultDivs);
 
 function game() {    
     let points = "";
