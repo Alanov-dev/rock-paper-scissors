@@ -65,52 +65,64 @@ function game() {
     
     rockButton.addEventListener("click", () => {
         round = playRound(playerSelection = "ROCK");
+        const roundP = document.createElement("p");
 
         if(round === "player") {
             playerTotal++;
+            roundP.textContent = "Player won! Player has: " + playerTotal;
+            container.appendChild(roundP);
         } else if(round === "computer"){
-            computerTotal++
+            computerTotal++;
+            roundP.textContent = "Computer won! Computer has: " + computerTotal;
+            container.appendChild(roundP);
         }
 
         if(playerTotal > computerTotal && playerTotal === 5) {
-            console.log("Player has " + playerTotal + " points, Player won!");
+            roundP.textContent = "Victory for the Player! Player accumulated 5 points!";
         } else if(computerTotal > playerTotal && computerTotal === 5) {
-            console.log("Computer has " + computerTotal + " points, Computer won!");
-        } /*else {
-            console.log("Player has " + playerTotal + " points and Computer has " + 
-                computerTotal + " points, it's a draw!");
-        }*/
+            roundP.textContent = "Victory for the Computer! Computer accumulated 5 points!";
+        }
     });
     
     paperButton.addEventListener("click", () => {
         round = playRound(playerSelection = "PAPER");
+        const roundP = document.createElement("p");
 
         if(round === "player") {
             playerTotal++;
+            roundP.textContent = "Player won! Player has: " + playerTotal;
+            container.appendChild(roundP);
         } else if(round === "computer"){
-            computerTotal++
+            computerTotal++;
+            roundP.textContent = "Computer won! Computer has: " + computerTotal;
+            container.appendChild(roundP);
         }
 
         if(playerTotal > computerTotal && playerTotal === 5) {
-            console.log("Player has " + playerTotal + " points, Player won!");
+            roundP.textContent = "Victory for the Player! Player accumulated 5 points!";
         } else if(computerTotal > playerTotal && computerTotal === 5) {
-            console.log("Computer has " + computerTotal + " points, Computer won!");
+            roundP.textContent = "Victory for the Computer! Computer accumulated 5 points!";
         }
     });
     
     scissorsButton.addEventListener("click", () => {
         round = playRound(playerSelection = "SCISSORS");
+        const roundP = document.createElement("p");
 
         if(round === "player") {
             playerTotal++;
+            roundP.textContent = "Player won! Player has: " + playerTotal;
+            container.appendChild(roundP);
         } else if(round === "computer"){
-            computerTotal++
+            computerTotal++;
+            roundP.textContent = "Computer won! Computer has: " + computerTotal;
+            container.appendChild(roundP);
         }
 
         if(playerTotal > computerTotal && playerTotal === 5) {
-            console.log("Player has " + playerTotal + " points, Player won!");
+            roundP.textContent = "Victory for the Player! Player accumulated 5 points!";
         } else if(computerTotal > playerTotal && computerTotal === 5) {
-            console.log("Computer has " + computerTotal + " points, Computer won!");
+            roundP.textContent = "Victory for the Computer! Computer accumulated 5 points!";
         }
     });
     
