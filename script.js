@@ -13,93 +13,109 @@ function computerPlay() {
 }
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerPlay();
-    //playerSelection = prompt("Rock, Paper or Scissors?").toUpperCase();
+
     const drawP = document.createElement("p");
     const winP = document.createElement("p");
     const loseP = document.createElement("p");
+
     if(playerSelection === computerSelection) {
-        //console.log("Draw! " + playerSelection + " and " + computerSelection + " is draw.");
         drawP.textContent = "Draw! " + playerSelection + " and " + computerSelection + " is draw.";
         container.appendChild(drawP);
         return "draw";
     } else if(playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-        //console.log("You win! " + playerSelection + " beats " + computerSelection);
         winP.textContent = "You win! " + playerSelection + " beats " + computerSelection;
         container.appendChild(winP);
         return "player";
     } else if(playerSelection === "PAPER" && computerSelection === "ROCK") {
-        //console.log("You win! " + playerSelection + " beats " + computerSelection);
         winP.textContent = "You win! " + playerSelection + " beats " + computerSelection;
         container.appendChild(winP);
         return "player";
     } else if(playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-        //console.log("You win! " + playerSelection + " beats " + computerSelection);
         winP.textContent = "You win! " + playerSelection + " beats " + computerSelection;
         container.appendChild(winP);
         return "player";
     } else {
-        //console.log("You lose! " + computerSelection + " beats " + playerSelection);
         loseP.textContent = "You lose! " + computerSelection + " beats " + playerSelection;
         container.appendChild(loseP);
         return "computer";
     }
 }
-const container = document.querySelector("#container");
-
-const rockButton = document.createElement("button");
-rockButton.classList.add('selectionButton');
-rockButton.textContent = "ROCK";
-
-const paperButton = document.createElement("button");
-paperButton.classList.add("selectionButton")
-paperButton.textContent = "PAPER";
-
-const scissorsButton = document.createElement("button");
-scissorsButton.classList.add("selectionButton");
-scissorsButton.textContent = "SCISSORS";
-
-container.appendChild(rockButton);
-container.appendChild(paperButton);
-container.appendChild(scissorsButton);
-
-rockButton.addEventListener("click", () => {
-    playRound(playerSelection = "ROCK");
-});
-
-paperButton.addEventListener("click", () => {
-    playRound(playerSelection = "PAPER");
-});
-
-scissorsButton.addEventListener("click", () => {
-    playRound(playerSelection = "SCISSORS");
-});
-
-const resultDivs = document.createElement("div");
-
-container.appendChild(resultDivs);
-
 function game() {    
-    let points = "";
     let playerTotal = 0;
     let computerTotal = 0;
-    /*for(i = 0; i < 5; i++) {
-        points = playRound();
-        if(points === "player") {
+    let round = "";
+
+    const container = document.querySelector("#container");
+
+    const rockButton = document.createElement("button");
+    rockButton.classList.add('selectionButton');
+    rockButton.textContent = "ROCK";
+    
+    const paperButton = document.createElement("button");
+    paperButton.classList.add("selectionButton")
+    paperButton.textContent = "PAPER";
+    
+    const scissorsButton = document.createElement("button");
+    scissorsButton.classList.add("selectionButton");
+    scissorsButton.textContent = "SCISSORS";
+    
+    container.appendChild(rockButton);
+    container.appendChild(paperButton);
+    container.appendChild(scissorsButton);
+    
+    rockButton.addEventListener("click", () => {
+        round = playRound(playerSelection = "ROCK");
+
+        if(round === "player") {
             playerTotal++;
-            console.log("Player points: " + playerTotal);
+        } else if(round === "computer"){
+            computerTotal++
         }
-        else if(points === "computer") {
-            computerTotal++;
-            console.log("Computer points: " + computerTotal);
-        }        
-    }*/
-    if(playerTotal > computerTotal) {
-        console.log("Player has " + playerTotal + " points, Player won!");
-    } else if(computerTotal > playerTotal) {
-        console.log("Computer has " + computerTotal + " points, Computer won!");
-    } else {
-        console.log("Player has " + playerTotal + " points and Computer has " + 
-            computerTotal + " points, it's a draw!");
-    }
+
+        if(playerTotal > computerTotal && playerTotal === 5) {
+            console.log("Player has " + playerTotal + " points, Player won!");
+        } else if(computerTotal > playerTotal && computerTotal === 5) {
+            console.log("Computer has " + computerTotal + " points, Computer won!");
+        } /*else {
+            console.log("Player has " + playerTotal + " points and Computer has " + 
+                computerTotal + " points, it's a draw!");
+        }*/
+    });
+    
+    paperButton.addEventListener("click", () => {
+        round = playRound(playerSelection = "PAPER");
+
+        if(round === "player") {
+            playerTotal++;
+        } else if(round === "computer"){
+            computerTotal++
+        }
+
+        if(playerTotal > computerTotal && playerTotal === 5) {
+            console.log("Player has " + playerTotal + " points, Player won!");
+        } else if(computerTotal > playerTotal && computerTotal === 5) {
+            console.log("Computer has " + computerTotal + " points, Computer won!");
+        }
+    });
+    
+    scissorsButton.addEventListener("click", () => {
+        round = playRound(playerSelection = "SCISSORS");
+
+        if(round === "player") {
+            playerTotal++;
+        } else if(round === "computer"){
+            computerTotal++
+        }
+
+        if(playerTotal > computerTotal && playerTotal === 5) {
+            console.log("Player has " + playerTotal + " points, Player won!");
+        } else if(computerTotal > playerTotal && computerTotal === 5) {
+            console.log("Computer has " + computerTotal + " points, Computer won!");
+        }
+    });
+    
+    const resultDivs = document.createElement("div");
+    
+    container.appendChild(resultDivs);
 }
 game();
