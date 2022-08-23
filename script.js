@@ -5,5 +5,12 @@ function randomNumber () {
 }
 
 function getComputerChoice() {    
-
+    let computerResult = randomNumber();
+    if(computerResult === 1) {
+        return "ROCK";
+    } else if(computerResult === 2) {
+        return "PAPER";
+    } else {
+        return "SCISSORS";
+    }
 }
